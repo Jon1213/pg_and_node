@@ -30,7 +30,7 @@ pg.connect(config, function(err, client, done){
         //call `done()` to release the client back to the pool
         done();
 });
-
+//comment stuff
 // INSERT SOME DATA
 pg.connect(config, function(err, client, done){
 		// Check for errors
