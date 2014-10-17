@@ -27,7 +27,7 @@ db.query = function(statement, params, anotherBuzzer){
   });
 };
 
-db.query("SELECT * FROM books;", function(err, resultSet){
+db.query("SELECT * FROM books;", [], function(err, resultSet){
     if (err) console.log("SELECT FAILED :-(", err);
     console.log(resultSet.rows);
 });
