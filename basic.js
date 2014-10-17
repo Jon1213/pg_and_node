@@ -5,7 +5,9 @@ var pg = require('pg');
 var config = {
     database: "library_example_app",
     port: 5432,
-    host: "localhost"
+    host: "localhost",
+    user: "postgres",
+    password: "epiv5=mu"
 };
 
 // SELECT SOME DATA
