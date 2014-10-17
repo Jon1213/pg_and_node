@@ -6,7 +6,9 @@ var db = {};
 db.config = {
     database: "library_example_app",
     port: 5432,
-    host: "localhost"
+    host: "localhost",
+    user: "postgres",
+    password: ""
 };
 
 db.connect = function(buzzer) {
@@ -36,5 +38,13 @@ db.query("INSERT INTO books (title, author) VALUES ($1, $2) RETURNING *",
 });
 
 // Excercise: add UPDATE and DELETE calls
+
+db.query("UPDATE books SET author = 'F. Scott Fitzgerald' WHERE title = 'The Great Gatsby", function(err, resultSet){
+  if (err) console.log("UPDATE failed", err);
+});
+
+db.query("DELETE from books WHERE title = $1 AND author = $2", ["F. Scott Fitzgerald"], function(err, resultSet){
+  if (err) console.log("UPDATE failed", err);
+});
 
 pg.end();
