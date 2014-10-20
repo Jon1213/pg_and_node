@@ -104,10 +104,14 @@ app.put('/books/:id', function(req, res) {
 //Delete
 app.delete('/books/:id', function(req, res) {
 	var id = req.params.id;
+  var buzzer = function(){
+    res.redirect('/books');
+  };
   //TODO
   // library.destroy ...
-  library.destroy(id);
-  res.redirect('/books');
+  library.destroy(id, buzzer);
+  
+  
 });
 
 var server = app.listen(3000, function() {
