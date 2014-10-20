@@ -39,9 +39,8 @@ Library.prototype.add = function(title, author, buzzer) {
 		resultSet.rows.forEach(function(row){
 			var new_book = new Book(row.title, row.author, row.id);
 		});
+		buzzer(newBook);
 	});
-
-	buzzer(newBook);
 };
 
 Library.prototype.destroy = function(id, buzzer) {
@@ -49,12 +48,13 @@ Library.prototype.destroy = function(id, buzzer) {
 	// db.query... DELETE
 	db.query("DELETE FROM books WHERE id = $1;",[id], function(err, resultSet){
 		if (err) console.log("QUERY FAILED", err);
+		buzzer();
 	});
-	var buzzer = function(){
+	// var buzzer = function(){
 
-	};
+	// };
 	// call buzzer without params when done
-	buzzer();
+	
 };
 
 Library.prototype.update = function(id, title, author, buzzer) {
@@ -62,10 +62,10 @@ Library.prototype.update = function(id, title, author, buzzer) {
 	// db.query... UPDATE
 	db.query("UPDATE books SET title = $1, author = $2 WHERE id = $3;",[title, author, id], function(err, resultSet){
 		if (err) console.log("QUERY FAILED", err);
+		buzzer();
 	});
 	// call buzzer without params when done
 
-	buzzer();
 };
 
 
