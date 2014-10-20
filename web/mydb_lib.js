@@ -2,11 +2,13 @@
 
 var pg = require('pg');
 
-function DB(database, port, host) {
+function DB(database, port, host, user, password) {
   this.config = {
     database: database,
     port: port,
-    host: host
+    host: host,
+    user: user,
+    password : password
   };
 }
 

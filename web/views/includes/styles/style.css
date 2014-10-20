@@ -1,0 +1,13 @@
+header {
+	height: 100px;
+	width: 100%;
+	padding: 10px  20px 10px 20px;
+	background: solid #000000;
+}
+
+footer {
+	height: 75px;
+	width: 100%;
+	padding: 5px 50px 5px 50px;
+	background: solid #171717;
+}
